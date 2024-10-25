@@ -36,13 +36,16 @@
                 class="form-control"
                 id="password"
                 placeholder="Password"
+                required
+                minlength="6"
               />
             </div>
             <div class="d-flex justify-content-between align-items-center">
               <button
                 type="submit"
                 class="btn btn-azz text-white btn-block"
-                [disabled]="false"
+                [ngClass]="{ 'bg-dark': form.invalid }"
+                [disabled]="form.invalid"
                 (click)="register()"
               >
                 Sign Up

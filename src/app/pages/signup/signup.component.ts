@@ -19,9 +19,9 @@ export class SignupComponent {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      name: this.fb.control(''),
+      name: this.fb.control('', [Validators.required]),
       // email pass
-      email: this.fb.control(''),
+      email: this.fb.control('', [Validators.required]),
       password: this.fb.control('', [Validators.required]),
       favorites: this.fb.control([]),
     });

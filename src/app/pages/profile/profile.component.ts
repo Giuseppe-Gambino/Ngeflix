@@ -3,6 +3,8 @@ import { iMovie } from '../../interfaces/movie';
 import { FavoritesService } from '../../services/favorites.service';
 import { AuthService } from '../../auth/auth.service';
 import { iUser } from '../../interfaces/i-user';
+import { MoviesService } from '../../services/movies.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-profile',

@@ -1,5 +1,5 @@
 import { iMovie } from './../../interfaces/movie';
-import { CommonModule } from '@angular/common';
+
 import { iUser } from './../../interfaces/i-user';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';

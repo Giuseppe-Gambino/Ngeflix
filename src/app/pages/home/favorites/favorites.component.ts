@@ -3,6 +3,7 @@ import { iMovie } from '../../../interfaces/movie';
 import { iUser } from '../../../interfaces/i-user';
 import { AuthService } from '../../../auth/auth.service';
 import { FavoritesService } from '../../../services/favorites.service';
+import { MoviesService } from '../../../services/movies.service';
 
 @Component({
   selector: 'app-favorites',
