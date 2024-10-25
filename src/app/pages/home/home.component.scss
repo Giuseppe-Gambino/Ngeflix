@@ -1,0 +1,90 @@
+.card-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.card {
+  position: relative;
+  width: 18rem;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  cursor: pointer;
+  transition: 250ms;
+}
+.card:hover {
+  transition: 250ms;
+  scale: 1.05;
+}
+
+.card-img {
+  border-radius: 10px;
+}
+
+.genre-badge {
+  background-color: rgba(22, 22, 22, 0.816);
+  padding: 5px 10px;
+  border-radius: 10px;
+  width: max-content;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.arrow {
+  font-size: 1.5rem;
+  color: white;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.trending-title {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.ciao {
+  width: 100%;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+.hero {
+  height: 500px;
+  margin-top: -100px;
+  margin-bottom: 1.5rem;
+}
+
+.gradienteHero {
+  background: linear-gradient(
+    180deg,
+    rgba(18, 18, 18, 0) 0%,
+    rgba(18, 18, 18, 0.4458158263) 22%,
+    rgba(18, 18, 18, 0.69) 53%,
+    rgb(9 9 9) 94%
+  );
+}
+
+section {
+  background-color: #090909;
+}
+
+.pref {
+  cursor: pointer;
+  transition: 250ms;
+}
+
+.pref:hover {
+  transition: 250ms;
+  scale: 1.05;
+}
+
+.pref:active {
+  color: red;
+}

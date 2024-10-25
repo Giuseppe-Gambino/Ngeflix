@@ -1,0 +1,41 @@
+.heroProfile {
+  height: 100px;
+  background-image: linear-gradient(
+    to right top,
+    #0a397f,
+    #005496,
+    #006fa7,
+    #0089b2,
+    #00a3bb
+  );
+}
+
+.imgP {
+  font-size: 4rem;
+  padding: 1rem;
+  position: absolute;
+  bottom: -45px;
+}
+li {
+  background-color: #414952;
+  border: none;
+}
+
+.btn-delete {
+  cursor: pointer;
+  transition: 250ms;
+}
+
+.btn-delete:hover {
+  transition: 250ms;
+  scale: 1.05;
+}
+
+.btn-delete:active {
+  transition: 250ms;
+  scale: 0.95;
+}
+
+.bg-cont {
+  background-color: #2d3338;
+}

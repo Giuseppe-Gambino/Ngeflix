@@ -1,0 +1,51 @@
+<section>
+  <div
+    class="hero position-relative mb-5 d-flex flex-column justify-content-end"
+  >
+    <img
+      src="https://i.pinimg.com/originals/7a/0d/c2/7a0dc24f568b81a39ba1ce797f65d355.jpg"
+      class="ciao position-absolute"
+    />
+    <div class="w-100 z-3 gradienteHero pb-4">
+      <div class="container">
+        <h2>Attack on Titan</h2>
+        <h5 class="w-25">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+          commodi reprehenderit dignissimos vel aspernatur debitis obcaecati
+          explicabo,
+        </h5>
+        <button class="btn btn-primary me-2">guarda</button
+        ><button class="btn btn-primary me-2">info</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- carosello -->
+  <div class="container mt-5">
+    <h2 class="mb-5">Trending Now</h2>
+    <div class="d-flex flex-wrap">
+      <div *ngFor="let singleMovie of movies" class="col">
+        <div class="card pb-5 text-white position-relative">
+          <img
+            src="{{ singleMovie.coverImage }}"
+            class="rounded-2 shadow-lg object-fit-cover"
+            height="180"
+            alt="Zombie Joget"
+          />
+          <div
+            class="card-img-overlay d-flex flex-column justify-content-between"
+          >
+            <span class="genre-badge">{{ singleMovie.genre }}</span>
+            <span
+              (click)="addFav(singleMovie)"
+              class="genre-badge position-absolute top-0 end-0 mt-3 me-3 pref"
+              ><i class="bi bi-heart-fill"></i
+            ></span>
+            <h5 class="card-title m-0">{{ singleMovie.title }}</h5>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,66 @@
+<section class="gradientNav position-sticky top-0 z-3">
+  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 container">
+    <a
+      class="d-flex align-items-center px-3 mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+    >
+      <span routerLink="home" class="fs-4 fw-semibold text-white">Ngeflix</span>
+    </a>
+
+    <ul class="nav nav-pills">
+      <li *ngIf="isLoggedIn" class="nav-item">
+        <a
+          routerLink="home"
+          routerLinkActive="text-white fw-semibold"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="nav-link text-secondary"
+          aria-current="page"
+          >Home</a
+        >
+      </li>
+      <li *ngIf="isLoggedIn" class="nav-item">
+        <a
+          routerLink="home/favorites"
+          routerLinkActive="text-white fw-semibold"
+          class="nav-link text-secondary"
+          >Favorites</a
+        >
+      </li>
+      <li *ngIf="isLoggedIn" class="nav-item">
+        <a
+          routerLink="users"
+          routerLinkActive="text-white fw-semibold"
+          class="nav-link text-secondary"
+          >Users</a
+        >
+      </li>
+      <li *ngIf="!isLoggedIn" class="nav-item">
+        <a
+          routerLink=""
+          routerLinkActive="text-white fw-semibold"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="nav-link text-secondary"
+          >Log In</a
+        >
+      </li>
+      <li *ngIf="!isLoggedIn" class="nav-item">
+        <a
+          routerLink="signup"
+          routerLinkActive="text-white fw-semibold"
+          class="nav-link text-secondary"
+          >Sign Up</a
+        >
+      </li>
+      <li *ngIf="isLoggedIn">
+        <a class="nav-link text-secondary" (click)="esci()">Log Out</a>
+      </li>
+      <li *ngIf="isLoggedIn" class="nav-item">
+        <a
+          routerLink="profile"
+          routerLinkActive="text-white fw-semibold"
+          class="text-secondary"
+          ><i class="bi bi-person-circle fs-3 ms-2"></i
+        ></a>
+      </li>
+    </ul>
+  </header>
+</section>

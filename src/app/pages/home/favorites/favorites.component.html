@@ -1,0 +1,28 @@
+<!-- carosello -->
+<div class="container mt-5">
+  <h2 class="mb-5">Your favourites</h2>
+  <div class="d-flex flex-wrap">
+    <div *ngFor="let singleMovie of moviesFavorites" class="col">
+      <div class="card pb-5 text-white position-relative">
+        <img
+          src="{{ singleMovie.coverImage }}"
+          class="rounded-2 shadow-lg object-fit-cover"
+          height="180"
+          alt="Zombie Joget"
+        />
+        <div
+          class="card-img-overlay d-flex flex-column justify-content-between"
+        >
+          <span class="genre-badge">{{ singleMovie.genre }}</span>
+          <span
+            (click)="removeFav(singleMovie.id)"
+            class="genre-badge position-absolute top-0 end-0 mt-3 me-3 pref"
+            ><i class="bi bi-heart-fill"></i
+          ></span>
+          <h5 class="card-title m-0">{{ singleMovie.title }}</h5>
+          <span class="arrow">→</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

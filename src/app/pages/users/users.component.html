@@ -1,0 +1,17 @@
+<div class="container my-5">
+  <h2 class="mb-4">User List</h2>
+
+  <!-- Lista di Utenti -->
+  <ul class="list-group">
+    <!-- Utente 1 -->
+    <li *ngFor="let singleUser of users" class="list-group-item">
+      <div class="d-flex align-items-center">
+        <i class="bi bi-person-circle fs-1 me-3"></i>
+        <div>
+          <h5 class="mb-1">{{ singleUser.name }}</h5>
+          <p class="mb-0">Email: {{ singleUser.email }}</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+.gradiente {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.8603816526610644) 0%,
+    rgba(8, 8, 8, 1) 100%
+  );
+  background-repeat: no-repeat;
+}
+
+body {
+  height: 100vh;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import "bootstrap/scss/bootstrap";
