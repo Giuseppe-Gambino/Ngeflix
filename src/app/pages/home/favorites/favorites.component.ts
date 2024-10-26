@@ -4,6 +4,7 @@ import { iUser } from '../../../interfaces/i-user';
 import { AuthService } from '../../../auth/auth.service';
 import { FavoritesService } from '../../../services/favorites.service';
 import { MoviesService } from '../../../services/movies.service';
+import { iFavorites } from '../../../interfaces/favorites';
 
 @Component({
   selector: 'app-favorites',
@@ -13,29 +14,48 @@ import { MoviesService } from '../../../services/movies.service';
 export class FavoritesComponent {
   user!: iUser;
 
-  moviesFavorites!: iMovie[];
+  favoriteMovies!: iMovie[];
 
   constructor(private authSvc: AuthService, private FavSvc: FavoritesService) {}
 
-  ngOnInit(): void {
-    this.FavSvc.getMovies().subscribe((data) => (this.moviesFavorites = data));
-
+  ngOnInit() {
     this.authSvc.user$.subscribe((userD) => {
       if (!userD) return;
       this.user = userD;
     });
+
+    this.loadFavorites(this.user.id);
   }
 
-  ngOnDestroy(): void {
-    this.FavSvc.getMovies()
-      .subscribe((data) => (this.moviesFavorites = data))
-      .unsubscribe();
+  loadFavorites(userId: number) {
+    this.FavSvc.getUserFavorites(userId).subscribe((favorites) => {
+      const movieIds = favorites.map((fav) => fav.movieId);
+      this.FavSvc.getMoviesByIds(movieIds).subscribe((movies) => {
+        this.favoriteMovies = movies;
+      });
+    });
   }
 
+  ciao!: iFavorites[];
   removeFav(id: number) {
-    this.FavSvc.removeFavorite(id).subscribe();
-    this.moviesFavorites = this.moviesFavorites.filter(
-      (item) => item.id !== id
+    this.FavSvc.getUserFavorites(this.user.id).subscribe((data) => {
+      this.ciao = data;
+      console.log(this.ciao);
+    });
+
+    // devo cercare di prendere il film correto, data mi da i film fav di un utente, e tramite id del film devo trovare l'id del fav ed eliminarlo
+
+    // this.ciao = this.ciao.filter((item) => item.movieId == id);
+    // console.log(this.ciao.filter((item) => item.movieId == id));
+
+    console.log(this.ciao);
+
+    // this.FavSvc.removeFavorite(id).subscribe();
+
+    this.favoriteMovies = this.favoriteMovies.filter(
+      (movie) => movie.id !== id
     );
   }
 }
+
+// .filter((item) => item.movieId == id && item.userId == this.user.id)

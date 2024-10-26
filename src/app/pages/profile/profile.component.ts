@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit {
   constructor(private FavSvc: FavoritesService, private authSvc: AuthService) {}
 
   ngOnInit(): void {
-    this.FavSvc.getMovies().subscribe((data) => (this.moviesFavorites = data));
+    // this.FavSvc.getMovies().subscribe((data) => (this.moviesFavorites = data));
 
     this.authSvc.user$.subscribe((userD) => {
       if (!userD) return;

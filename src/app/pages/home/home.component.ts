@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       .unsubscribe();
   }
 
-  addFav(newMovie: iMovie) {
-    this.FavSvc.addFavorites(newMovie).subscribe();
+  addFav(movieId: number) {
+    this.FavSvc.addFavorite(this.user.id, movieId).subscribe();
   }
 }
