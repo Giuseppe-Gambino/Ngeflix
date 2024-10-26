@@ -1,3 +1,4 @@
+import { map, pipe, tap } from 'rxjs';
 import { Component } from '@angular/core';
 import { iMovie } from '../../../interfaces/movie';
 import { iUser } from '../../../interfaces/i-user';
@@ -36,26 +37,25 @@ export class FavoritesComponent {
     });
   }
 
-  ciao!: iFavorites[];
+  favoriteItemId!: number;
   removeFav(id: number) {
-    this.FavSvc.getUserFavorites(this.user.id).subscribe((data) => {
-      this.ciao = data;
-      console.log(this.ciao);
-    });
+    this.FavSvc.getUserFavorites(this.user.id)
+      .pipe(map((res) => res.find((item) => item.movieId === id)))
+      .subscribe((favorite) => {
+        if (favorite) {
+          this.favoriteItemId = favorite.id;
+          console.log('Favorite ID:', this.favoriteItemId);
 
-    // devo cercare di prendere il film correto, data mi da i film fav di un utente, e tramite id del film devo trovare l'id del fav ed eliminarlo
-
-    // this.ciao = this.ciao.filter((item) => item.movieId == id);
-    // console.log(this.ciao.filter((item) => item.movieId == id));
-
-    console.log(this.ciao);
-
-    // this.FavSvc.removeFavorite(id).subscribe();
+          this.FavSvc.removeFavorite(this.favoriteItemId).subscribe(() => {
+            console.log(`Favorite ${this.favoriteItemId} rimosso`);
+          });
+        } else {
+          console.log('Favorite non trovato:', id);
+        }
+      });
 
     this.favoriteMovies = this.favoriteMovies.filter(
       (movie) => movie.id !== id
     );
   }
 }
-
-// .filter((item) => item.movieId == id && item.userId == this.user.id)

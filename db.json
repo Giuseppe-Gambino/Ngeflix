@@ -275,29 +275,19 @@
   ],
   "favorites": [
     {
-      "id": 1,
-      "userId": 1,
-      "movieId": 2
-    },
-    {
       "userId": 1,
       "movieId": 1,
       "id": 4
     },
     {
-      "userId": 1,
-      "movieId": 8,
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "movieId": 10,
-      "id": 6
-    },
-    {
       "userId": 5,
       "movieId": 1,
       "id": 7
+    },
+    {
+      "userId": 1,
+      "movieId": 2,
+      "id": 8
     }
   ]
 }
