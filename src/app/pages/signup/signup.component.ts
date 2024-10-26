@@ -23,7 +23,6 @@ export class SignupComponent {
       // email pass
       email: this.fb.control('', [Validators.required]),
       password: this.fb.control('', [Validators.required]),
-      favorites: this.fb.control([]),
     });
   }
 

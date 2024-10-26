@@ -29,6 +29,13 @@
       "password": "$2a$10$8bQAfVe6Q7KmUM6IvNMMLONcceXnlJ10ROTQDbuO08RiP1cmRWugy",
       "name": "Pino",
       "id": 5
+    },
+    {
+      "email": "ciao@gmail.com",
+      "password": "$2a$10$gyQviKZ0EGfjXH0tshMyje.J8dUNe/d1wkCaMkanI4l6D5QYtT5EG",
+      "name": "ciao",
+      "favorites": [],
+      "id": 6
     }
   ],
   "movies": [
@@ -291,13 +298,18 @@
     },
     {
       "userId": 1,
-      "movieId": 26,
-      "id": 10
+      "movieId": 3,
+      "id": 11
     },
     {
       "userId": 1,
-      "movieId": 3,
-      "id": 11
+      "movieId": 11,
+      "id": 14
+    },
+    {
+      "userId": 1,
+      "movieId": 11,
+      "id": 18
     }
   ]
 }

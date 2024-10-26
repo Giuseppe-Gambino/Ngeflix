@@ -6,11 +6,11 @@
     rgba(0, 0, 0, 0.8603816526610644) 0%,
     rgba(8, 8, 8, 1) 100%
   );
-  background-repeat: no-repeat;
+  background-repeat: inherit;
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 /* Importing Bootstrap SCSS file. */

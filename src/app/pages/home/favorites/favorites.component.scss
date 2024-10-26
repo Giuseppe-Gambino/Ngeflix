@@ -10,12 +10,18 @@
   background-color: rgba(255, 255, 255, 0);
   cursor: pointer;
   transition: 250ms;
+  .arrow {
+    transition: 250ms;
+  }
 }
 .card:hover {
   transition: 250ms;
   scale: 1.05;
+  .arrow {
+    transition: 250ms;
+    transform: translateX(10px);
+  }
 }
-
 .card-img {
   border-radius: 10px;
 }
@@ -71,9 +77,9 @@
   );
 }
 
-section {
-  background-color: #090909;
-}
+// section {
+//   background-color: #090909;
+// }
 
 .pref {
   cursor: pointer;

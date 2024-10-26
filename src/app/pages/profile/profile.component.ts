@@ -30,6 +30,12 @@ export class ProfileComponent implements OnInit {
   loadFavorites(userId: number) {
     this.FavSvc.getUserFavorites(userId).subscribe((favorites) => {
       const movieIds = favorites.map((fav) => fav.movieId);
+
+      if (movieIds.length === 0) {
+        this.moviesFavorites = [];
+        return;
+      }
+
       this.FavSvc.getMoviesByIds(movieIds).subscribe((movies) => {
         this.moviesFavorites = movies;
       });
