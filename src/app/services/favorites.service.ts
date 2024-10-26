@@ -20,7 +20,6 @@ export class FavoritesService {
     return this.http.get<iFavorites[]>(`${this.favoritesUrl}?userId=${userId}`);
   }
 
-  // Funzione per ottenere i dettagli dei film a partire da una lista di `movieId`
   getMoviesByIds(movieIds: number[]) {
     const queryParams = movieIds.map((id) => `id=${id}`).join('&');
     return this.http.get<iMovie[]>(`${this.moviesUrl}?${queryParams}`);

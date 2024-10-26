@@ -287,7 +287,17 @@
     {
       "userId": 1,
       "movieId": 2,
-      "id": 8
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "movieId": 26,
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "movieId": 3,
+      "id": 11
     }
   ]
 }

@@ -19,18 +19,42 @@ export class ProfileComponent implements OnInit {
   constructor(private FavSvc: FavoritesService, private authSvc: AuthService) {}
 
   ngOnInit(): void {
-    // this.FavSvc.getMovies().subscribe((data) => (this.moviesFavorites = data));
-
     this.authSvc.user$.subscribe((userD) => {
       if (!userD) return;
       this.user = userD;
     });
+
+    this.loadFavorites(this.user.id);
   }
 
+  loadFavorites(userId: number) {
+    this.FavSvc.getUserFavorites(userId).subscribe((favorites) => {
+      const movieIds = favorites.map((fav) => fav.movieId);
+      this.FavSvc.getMoviesByIds(movieIds).subscribe((movies) => {
+        this.moviesFavorites = movies;
+      });
+    });
+  }
+
+  favoriteItemId!: number;
   removeFav(id: number) {
-    this.FavSvc.removeFavorite(id).subscribe();
+    this.FavSvc.getUserFavorites(this.user.id)
+      .pipe(map((res) => res.find((item) => item.movieId === id)))
+      .subscribe((favorite) => {
+        if (favorite) {
+          this.favoriteItemId = favorite.id;
+          console.log('Favorite ID:', this.favoriteItemId);
+
+          this.FavSvc.removeFavorite(this.favoriteItemId).subscribe(() => {
+            console.log(`Favorite ${this.favoriteItemId} rimosso`);
+          });
+        } else {
+          console.log('Favorite non trovato:', id);
+        }
+      });
+
     this.moviesFavorites = this.moviesFavorites.filter(
-      (item) => item.id !== id
+      (movie) => movie.id !== id
     );
   }
 }
