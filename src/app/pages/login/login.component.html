@@ -58,6 +58,20 @@
               </button>
               <a class="text-white-50" routerLink="signup">New User?</a>
             </div>
+            <div
+              *ngIf="canEnter"
+              class="alert alert-success mb-0 mt-4 fw-semibold"
+              role="alert"
+            >
+              Logged in Successfully!
+            </div>
+            <div
+              *ngIf="CannotEnter"
+              class="alert alert-danger mb-0 mt-4 fw-semibold"
+              role="alert"
+            >
+              {{ typeError }}
+            </div>
           </form>
         </div>
       </div>

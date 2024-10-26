@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { AuthService } from './../../auth/auth.service';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { catchError, of, pipe } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -25,12 +26,38 @@ export class LoginComponent {
     });
   }
 
+  canEnter: boolean = false;
+  loggato() {
+    this.canEnter = !this.canEnter;
+  }
+
+  CannotEnter: boolean = false;
+  typeError!: string;
+
   onSubmit() {
     console.log('Login data:', this.form.value);
     console.log('Login data:', this.form);
 
     this.authSvc
       .login(this.form.value)
-      .subscribe((data) => this.router.navigate(['home']));
+      .pipe(
+        catchError((error) => {
+          // Gestione dell'errore qui
+          console.error('Errore intercettato:', error.error);
+          this.typeError = error.error;
+          // Restituisce un nuovo observable o lancia un errore
+          this.CannotEnter = !this.CannotEnter;
+          setTimeout(() => {
+            this.CannotEnter = !this.CannotEnter;
+          }, 1500);
+          return 'valore di fallback';
+        })
+      )
+      .subscribe((data) => {
+        this.loggato();
+        setTimeout(() => {
+          this.router.navigate(['home']);
+        }, 1500);
+      });
   }
 }
