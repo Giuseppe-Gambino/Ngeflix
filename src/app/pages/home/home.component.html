@@ -32,12 +32,30 @@
 
   <!-- carosello -->
   <div class="container mt-5">
-    <button
-      (click)="showFilter = !showFilter"
-      class="badge rounded-1 badgeG px-3 py-2 px-5 mb-1 border-0 fs-6"
-    >
-      Filter >
-    </button>
+    <div class="d-flex align-items-start">
+      <button
+        (click)="showFilter = !showFilter"
+        class="badge rounded-1 badgeG px-3 py-2 px-4 border-0 fs-5 me-2 fw-light"
+      >
+        Filter >
+      </button>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control bg-dark border-secondary text-white-50"
+          placeholder="The Boys"
+          #input
+        />
+        <button
+          (click)="searchBar(input.value)"
+          class="btn btn-outline-secondary"
+          type="button"
+          id="button-addon2"
+        >
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+    </div>
     <div *ngIf="showFilter" class="d-flex flex-wrap my-3">
       <span
         *ngFor="let singleGenre of movieGenres"

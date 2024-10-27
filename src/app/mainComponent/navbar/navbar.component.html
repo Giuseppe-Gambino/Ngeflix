@@ -51,15 +51,51 @@
         >
       </li>
       <li *ngIf="isLoggedIn">
-        <a class="nav-link text-secondary" (click)="esci()">Log Out</a>
-      </li>
-      <li *ngIf="isLoggedIn" class="nav-item">
-        <a
-          routerLink="profile"
-          routerLinkActive="text-white fw-semibold"
-          class="text-secondary"
-          ><i class="bi bi-person-circle fs-3 ms-2"></i
-        ></a>
+        <div class="flex-shrink-0 dropdown">
+          <a
+            (click)="show()"
+            [ngClass]="{ show: showBol }"
+            class="d-block text-decoration-none text-secondary"
+          >
+            <div class="d-flex align-items-center">
+              <i
+                class="bi bi-person-circle fs-3 ms-2 text-secondary hoverAvatar"
+              ></i
+              ><i class="bi bi-caret-down-fill ms-2"></i>
+            </div>
+          </a>
+          <ul
+            [ngClass]="{ show: showBol }"
+            class="dropdown-menu text-small shadow bg-dark hoverMenu"
+            style="
+              position: absolute;
+              inset: 0px 0px auto auto;
+              margin: 0px;
+              transform: translate(0px, 34px);
+            "
+          >
+            <li>
+              <a class="dropdown-item text-white-50 hoverMenu">Settings</a>
+            </li>
+            <li>
+              <a
+                routerLink="profile"
+                (click)="show()"
+                class="dropdown-item text-white-50 hoverMenu"
+                >Profile</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a
+                (click)="esci()"
+                (click)="show()"
+                class="dropdown-item text-white-50 hoverMenu"
+                >Sign out</a
+              >
+            </li>
+          </ul>
+        </div>
       </li>
     </ul>
   </header>

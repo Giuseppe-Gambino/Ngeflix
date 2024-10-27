@@ -310,6 +310,26 @@
       "userId": 1,
       "movieId": 11,
       "id": 18
+    },
+    {
+      "userId": 1,
+      "movieId": 2,
+      "id": 19
+    },
+    {
+      "userId": 1,
+      "movieId": 2,
+      "id": 20
+    },
+    {
+      "userId": 1,
+      "movieId": 3,
+      "id": 21
+    },
+    {
+      "userId": 1,
+      "movieId": 3,
+      "id": 22
     }
   ]
 }

@@ -18,6 +18,12 @@ export class NavbarComponent implements OnInit {
     });
   }
 
+  showBol: boolean = false;
+
+  show() {
+    this.showBol = !this.showBol;
+  }
+
   esci() {
     this.authSvc.logout();
     this.router.navigate(['']);

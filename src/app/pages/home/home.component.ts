@@ -1,7 +1,7 @@
 import { iMovie } from './../../interfaces/movie';
 
 import { iUser } from './../../interfaces/i-user';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, viewChild } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
 import { MoviesService } from '../../services/movies.service';
 import { FavoritesService } from '../../services/favorites.service';
@@ -74,6 +74,13 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.movies = this.movies.filter((item) => item.genre == tag);
     this.selectedGenre = tag;
     console.log(this.movies);
+  }
+
+  searchBar(searchInput: string) {
+    this.movies = this.allMovies;
+    this.movies = this.movies.filter((item) =>
+      item.title.toLowerCase().includes(searchInput)
+    );
   }
 
   movieLength() {
