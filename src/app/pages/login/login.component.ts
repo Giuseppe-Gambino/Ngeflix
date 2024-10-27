@@ -43,17 +43,12 @@ export class LoginComponent {
   typeError!: string;
 
   onSubmit() {
-    console.log('Login data:', this.form.value);
-    console.log('Login data:', this.form);
-
     this.authSvc
       .login(this.form.value)
       .pipe(
         catchError((error) => {
-          // Gestione dell'errore qui
-          console.error('Errore intercettato:', error.error);
           this.typeError = error.error;
-          // Restituisce un nuovo observable o lancia un errore
+
           this.CannotEnter = !this.CannotEnter;
           setTimeout(() => {
             this.CannotEnter = !this.CannotEnter;

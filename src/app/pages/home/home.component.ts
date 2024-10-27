@@ -73,7 +73,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.movies = this.allMovies;
     this.movies = this.movies.filter((item) => item.genre == tag);
     this.selectedGenre = tag;
-    console.log(this.movies);
   }
 
   searchBar(searchInput: string) {

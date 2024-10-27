@@ -49,13 +49,8 @@ export class ProfileComponent implements OnInit {
       .subscribe((favorite) => {
         if (favorite) {
           this.favoriteItemId = favorite.id;
-          console.log('Favorite ID:', this.favoriteItemId);
 
-          this.FavSvc.removeFavorite(this.favoriteItemId).subscribe(() => {
-            console.log(`Favorite ${this.favoriteItemId} rimosso`);
-          });
-        } else {
-          console.log('Favorite non trovato:', id);
+          this.FavSvc.removeFavorite(this.favoriteItemId).subscribe(() => {});
         }
       });
 

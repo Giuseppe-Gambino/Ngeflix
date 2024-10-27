@@ -35,7 +35,7 @@
                 name="password"
                 formControlName="password"
                 required
-                minlength="4"
+                minlength="6"
               />
               <div
                 class="alert alert-danger my-1 p-2"
@@ -49,7 +49,7 @@
                 role="alert"
                 *ngIf="minlength('password')"
               >
-                la password deve essere di almeno 4 caratteri
+                la password deve essere di almeno 6 caratteri
               </div>
             </div>
             <div class="d-flex justify-content-between align-items-center">

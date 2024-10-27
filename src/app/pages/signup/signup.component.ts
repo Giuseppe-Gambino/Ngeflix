@@ -34,10 +34,6 @@ export class SignupComponent {
     return this.form.get(input)?.invalid && this.form.get(input)?.touched;
   }
 
-  onSubmit() {
-    console.log(this.form);
-  }
-
   register() {
     this.authSvc.register(this.form.value).subscribe((res) => {
       this.router.navigate(['']);

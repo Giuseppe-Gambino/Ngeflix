@@ -36,6 +36,12 @@
       "name": "ciao",
       "favorites": [],
       "id": 6
+    },
+    {
+      "email": "ciccio@gmail.com",
+      "password": "$2a$10$nEig0AqHCOPkpVpaDEXVeeHyTLzedUgnSKBZ4i/b3Iu1aBf0NUqZC",
+      "name": "Francesco",
+      "id": 7
     }
   ],
   "movies": [
@@ -282,54 +288,24 @@
   ],
   "favorites": [
     {
-      "userId": 1,
-      "movieId": 1,
-      "id": 4
-    },
-    {
       "userId": 5,
       "movieId": 1,
       "id": 7
     },
     {
       "userId": 1,
-      "movieId": 2,
+      "movieId": 1,
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "movieId": 8,
       "id": 9
     },
     {
       "userId": 1,
-      "movieId": 3,
-      "id": 11
-    },
-    {
-      "userId": 1,
-      "movieId": 11,
-      "id": 14
-    },
-    {
-      "userId": 1,
-      "movieId": 11,
-      "id": 18
-    },
-    {
-      "userId": 1,
-      "movieId": 2,
-      "id": 19
-    },
-    {
-      "userId": 1,
-      "movieId": 2,
-      "id": 20
-    },
-    {
-      "userId": 1,
-      "movieId": 3,
-      "id": 21
-    },
-    {
-      "userId": 1,
-      "movieId": 3,
-      "id": 22
+      "movieId": 10,
+      "id": 10
     }
   ]
 }
