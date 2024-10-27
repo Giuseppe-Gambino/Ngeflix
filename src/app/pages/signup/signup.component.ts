@@ -26,6 +26,14 @@ export class SignupComponent {
     });
   }
 
+  minlength(input: string) {
+    return this.form.get(input)?.errors?.['minlength'];
+  }
+
+  isValid(input: string) {
+    return this.form.get(input)?.invalid && this.form.get(input)?.touched;
+  }
+
   onSubmit() {
     console.log(this.form);
   }

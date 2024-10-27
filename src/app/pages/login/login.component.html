@@ -21,7 +21,7 @@
               <div
                 class="alert alert-danger my-1 p-2"
                 role="alert"
-                *ngIf="form.get('email')?.invalid && form.get('email')?.touched"
+                *ngIf="isValid('email')"
               >
                 Inserisci un Email valida
               </div>
@@ -40,11 +40,16 @@
               <div
                 class="alert alert-danger my-1 p-2"
                 role="alert"
-                *ngIf="
-                  form.get('password')?.invalid && form.get('password')?.touched
-                "
+                *ngIf="isValid('password')"
               >
-                Inserisci una password di almeno 6 caratteri
+                Inserisci una password
+              </div>
+              <div
+                class="alert alert-danger my-1 p-2"
+                role="alert"
+                *ngIf="minlength('password')"
+              >
+                la password deve essere di almeno 4 caratteri
               </div>
             </div>
             <div class="d-flex justify-content-between align-items-center">

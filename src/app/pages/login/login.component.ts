@@ -21,7 +21,7 @@ export class LoginComponent {
   ngOnInit(): void {
     this.form = this.fb.group({
       // email pass
-      email: this.fb.control(''),
+      email: this.fb.control('', [Validators.required]),
       password: this.fb.control('', [Validators.required]),
     });
   }
@@ -29,6 +29,14 @@ export class LoginComponent {
   canEnter: boolean = false;
   loggato() {
     this.canEnter = !this.canEnter;
+  }
+
+  minlength(input: string) {
+    return this.form.get(input)?.errors?.['minlength'];
+  }
+
+  isValid(input: string) {
+    return this.form.get(input)?.invalid && this.form.get(input)?.touched;
   }
 
   CannotEnter: boolean = false;
