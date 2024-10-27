@@ -15,6 +15,31 @@ export class HomeComponent implements OnInit, OnDestroy {
   user!: iUser;
 
   movies!: iMovie[];
+  allMovies!: iMovie[];
+
+  showFilter: boolean = false;
+
+  movieGenres: string[] = [
+    'Action',
+    'Adventure',
+    'Animation',
+    'Comedy',
+    'Crime',
+    'Documentary',
+    'Drama',
+    'Family',
+    'Fantasy',
+    'Historical',
+    'Horror',
+    'Musical',
+    'Mystery',
+    'Romance',
+    'Science Fiction',
+    'Sports',
+    'Thriller',
+    'War',
+    'Western',
+  ];
 
   constructor(
     private authSvc: AuthService,
@@ -23,7 +48,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.MovSvc.getMovies().subscribe((data) => (this.movies = data));
+    this.MovSvc.getMovies().subscribe(
+      (data) => ((this.movies = data), (this.allMovies = data))
+    );
 
     this.authSvc.user$.subscribe((userD) => {
       if (!userD) return;
@@ -39,5 +66,21 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   addFav(movieId: number) {
     this.FavSvc.addFavorite(this.user.id, movieId).subscribe();
+  }
+
+  selectedGenre!: string;
+  filterTag(tag: string) {
+    this.movies = this.allMovies;
+    this.movies = this.movies.filter((item) => item.genre == tag);
+    this.selectedGenre = tag;
+    console.log(this.movies);
+  }
+
+  movieLength() {
+    return this.movies && !this.movies.length;
+  }
+
+  seeAllMovies() {
+    this.movies = this.allMovies;
   }
 }

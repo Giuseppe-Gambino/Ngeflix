@@ -95,3 +95,35 @@ section {
 .pref:active {
   color: red;
 }
+
+.desHero {
+  width: 50%;
+  min-width: 400px;
+}
+
+.btn-secondary {
+  background: linear-gradient(291deg, #3f3f3f, transparent);
+  border: none;
+  box-shadow: 0px 0px 0px 0px #ffffff;
+}
+
+.btn-secondary:hover {
+  box-shadow: 0px 0px 0px 2px #ffffff;
+}
+
+.badgeG {
+  background-color: rgb(77 77 77 / 48%);
+  color: #b6b6b6;
+  transition: 250ms;
+}
+
+.badgeG:active {
+  transition: 250ms;
+  scale: 0.93;
+}
+
+.badgeG:hover {
+  transition: 250ms;
+  background-color: rgba(255, 255, 255);
+  color: #1e1e1e;
+}
